@@ -1,2 +1,14 @@
-# EHR_Concept_Mining_with_Bio_ClinicalBERT
-Train an NN on Bio_ClinicalBERT embeddings of clinical phrases ( obtained from concatenation/anchoring), then classifies newly mined phrases to decide which ones to add to the terminology.
+# EHR Concept Mining (Bio_ClinicalBERT + MLP)
+
+This repo trains an MLP classifier on Bio_ClinicalBERT embeddings of clinical phrases (obtained via concatenation or anchoring) and then predicts labels for *new* phrases mined from EHRs. It’s a cleaned, CLI-based version of a Colab workflow.
+
+## Features
+- Bio_ClinicalBERT embeddings for short clinical phrases
+- 5-fold CV + grid search over a compact MLP config
+- Saves a reusable `.joblib` model
+- Predicts labels for new phrases and writes an Excel file
+
+## Install
+```bash
+python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
